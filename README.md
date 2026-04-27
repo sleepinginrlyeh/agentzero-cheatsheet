@@ -29,19 +29,27 @@ There is no "good" solution, but the easiest is to create a group, say "agentzer
 These instructions assume you have ~/agent-zero bound to /a0/usr in your container.  Adjust as necessary.
 
 ### Create an AgentZero group
+```bash
 sudo group add agentzero
-sudo usermod -aG agentzero <yourusername> 
+sudo usermod -aG agentzero <yourusername>
+```
 
 ### Change ownership of all current files to the group
+```bash
 sudo chgrp -R agentzero ~/agent-zero
+```
 
 ### Use the setgid bit so all files written are set to group "agentzero" - do this recursively
+```bash
 sudo find ~/agent-zero -type d -exec chmod g+s {} +
+```
 
 ### Change existing permissions so group has read-write access
+```bash
 sudo chmod -R g+rw ~/agent-zero
+```
 
 There is one missing part.  The default UMASK used by the agentzero container is 022 (rw-r--r--).  So when Agent Zero creates a new file the group will not have write access. You'll need to periodically refresh the permissions.  However, already created files will keep the group rw permissions:
+```bash
 sudo chmod -R g+rw ~/agent-zero
-
-
+```

@@ -2,6 +2,12 @@
 This is a user-contributed how to guide for using AgentZero
 <br/><br/>
 
+# Help Resources
+* Agent Zero [Discord Server](https://discord.gg/dpSzUPnX)
+* Agent Zero Homepage [https://www.agent-zero.ai/](https://www.agent-zero.ai/)
+* Agent Zero DeepWiki (AI RAG of source tree) [https://deepwiki.com/agent0ai/agent-zero](https://deepwiki.com/agent0ai/agent-zero)
+* Agent Zero Documentation [https://www.agent-zero.ai/p/docs/](https://www.agent-zero.ai/p/docs/)
+
 # Contents:
 1. [Quick Reminders](#quick_reminders)
 2. [Sharing Files With Agent Zero](#sharing-files-with-agent-zero)

@@ -1,8 +1,9 @@
 # agentzero-cheatsheet
-# Contents:
-1. [Quick Reminders](quick_reminders)
-
 This is a user-contributed how to guide for using AgentZero
+<br/><br/>
+
+# Contents:
+1. [Quick Reminders](#quick_reminders)
 <br/><br/>
 
 # Quick Reminders

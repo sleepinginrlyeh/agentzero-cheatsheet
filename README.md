@@ -9,6 +9,9 @@ Agent Zero runs in a container, so any files changed anywhere in the container e
 Agent Zero runs as root so when it writes files to /a0/usr, you will not have write access by default.  See section [Write Permissions for Shared Files](#write-permissions-for-shared-files)
 
 
+
+
+
 ## Write Permissions for Shared Files
 Since Agent Zero runs as root in the container, it will write files / directories with rw-r--r--  This makes it hard to use when, fore example, one wants to access the same git files as A0.
 

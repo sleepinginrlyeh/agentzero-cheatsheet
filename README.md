@@ -1,16 +1,14 @@
 # agentzero-cheatsheet
-Contents:
+#Contents:
 1. [Quick Reminders](quick_reminders)
 
 This is a user-contributed how to guide for using AgentZero
-&nbsp;
-&nbsp;
+<br/><br/>
 
 # Quick Reminders
 Agent Zero runs in a container, so any files changed anywhere in the container except under /a0/usr will be blown away.  /a0/usr should generally be bound to a directory that you have rw access to.
 Agent Zero runs as root so when it writes files to /a0/usr, you will not have write access by default.  See section [Write Permissions for Shared Files](#write-permissions-for-shared-files)
-&nbsp;
-&nbsp;
+<br/><br/>
 
 ## Write Permissions for Shared Files
 Since Agent Zero runs as root in the container, it will write files and directories using the default UMASK of 022 (rw-r--r--))  This makes it hard to use when, fore example, one wants to access the same git files as A0.

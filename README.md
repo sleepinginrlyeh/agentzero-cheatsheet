@@ -13,7 +13,7 @@ Agent Zero runs as root so when it writes files to /a0/usr, you will not have wr
 
 
 ## Write Permissions for Shared Files
-Since Agent Zero runs as root in the container, it will write files / directories with rw-r--r--  This makes it hard to use when, fore example, one wants to access the same git files as A0.
+Since Agent Zero runs as root in the container, it will write files and directories using the default UMASK of 022 (rw-r--r--))  This makes it hard to use when, fore example, one wants to access the same git files as A0.
 
 There is no "good" solution, but the easiest is to create a group, say "agentzero", join the group, and use the setgid bit to always change the ownership of files to the group.
 

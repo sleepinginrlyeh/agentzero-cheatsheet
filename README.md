@@ -55,6 +55,9 @@ There is one missing part.  The default UMASK used by the agentzero container is
 sudo chmod -R g+rw ~/agent-zero
 ```
 
+There is a pending ticket requesting UMASK support: [https://github.com/agent0ai/agent-zero/issues/1584](https://github.com/agent0ai/agent-zero/issues/1584)
+
+<br/><br/>
 # Using Google Vertex
 
 Agent Zero currently does not have Vertex support buit in to its known models.  It is possible to get it working.

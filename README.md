@@ -11,6 +11,7 @@ This is a user-contributed how to guide for using AgentZero
 # Contents:
 1. [Quick Reminders](#quick_reminders)
 2. [Sharing Files With Agent Zero](#sharing-files-with-agent-zero)
+3. [Using Google Vertex](#using-google-vertex)
 <br/><br/>
 
 # Quick Reminders
@@ -53,3 +54,33 @@ There is one missing part.  The default UMASK used by the agentzero container is
 ```bash
 sudo chmod -R g+rw ~/agent-zero
 ```
+
+# Using Google Vertex
+
+Agent Zero currently does not have Vertex support buit in to its known models.  It is possible to get it working.
+
+Modify /a0/conf/model_providers.yaml to add:
+
+```
+  vertex:
+    name: Google Vertex API
+    litellm_provider: vertex_ai
+```
+
+Then in the model dialog pick "Google Vertex API" as the Provider, fill in the model name, and nothing else.
+
+LiteLLM recognizes vertex_ai and knows to pick up the following env vars which can be passed in via Docker:
+
+      - GOOGLE_APPLICATION_CREDENTIALS=<path to .json credentials>
+      - VERTEXAI_LOCATION=<vertex location>
+      - VERTEXAI_PROJECT=<vertex project>
+
+This works with any models except those that require global location. The reason global doesn't work is that wasn't added until a later version of LiteLLM.  A0 is currently using an older version.  This affects mainly the 3.1 preview models.  Older models work fine with this config.
+
+There is a workaround for global until A0 uses a newer version of LiteLLM. After picking Google Vertex API in the settings, give it a custom URL like this:
+
+```
+https://aiplatform.googleapis.com/v1/projects/<vertexproject>/locations/global/publishers/google/models/gemini-3.1-pro-preview
+```
+
+There is a pending ticket requesting Vertex support:  [https://github.com/agent0ai/agent-zero/issues/1599](https://github.com/agent0ai/agent-zero/issues/1599)

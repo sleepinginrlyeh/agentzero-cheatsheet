@@ -12,6 +12,7 @@ This is a user-contributed how to guide for using AgentZero
 1. [Quick Reminders](#quick_reminders)
 2. [Sharing Files With Agent Zero](#sharing-files-with-agent-zero)
 3. [Using Google Vertex](#using-google-vertex)
+4. [Update Errors v1.10+](#update-errors)
 <br/><br/>
 
 # Quick Reminders
@@ -87,3 +88,16 @@ https://aiplatform.googleapis.com/v1/projects/<vertexproject>/locations/global/p
 ```
 
 There is a pending ticket requesting Vertex support:  [https://github.com/agent0ai/agent-zero/issues/1599](https://github.com/agent0ai/agent-zero/issues/1599)
+
+<br/<br/>
+# Update Errors
+## V1.10+ update in place
+
+If you use the default update through the UI, it may hit various errors backing up /a0/usr
+
+1) If there are symbolic links from inside the container to outside the container
+2) If you have timestamps pre-1980 (e.g., rust packages)
+
+If you back up /a0/usr yourself, a simple workaround is to go to "Self Update" - "Review Update" Select the "Advanced" tab and turn off "Back up /a0/usr first"  This will skip the backup.
+
+An additional note:  It may be better to back up /a0/usr yourself if you have large files there and want to to incremental / differential backups.
